@@ -1,0 +1,32 @@
+X-Coordinate of Point #1: X-Coordinate of Point #2: Y-Coordinate of Point #1: Y-Coordinate of Point #2: 
+Point #1 entered: x1 = 1.000000; y1 = 3.000000
+Point #2 entered: x2 = 2.000000; y2 = 4.000000
+The distance between the two points is 1.414
+
+X-Coordinate of Point #1: X-Coordinate of Point #2: Y-Coordinate of Point #1: Y-Coordinate of Point #2: 
+Point #1 entered: x1 = 1.000000; y1 = 3.000000
+Point #2 entered: x2 = 2.000000; y2 = 4.000000
+The distance between the two points is 1.414
+
+The perimeter of the city encompassed by your request is 4.443
+
+X-Coordinate of Point #1: X-Coordinate of Point #2: Y-Coordinate of Point #1: Y-Coordinate of Point #2: 
+Point #1 entered: x1 = 1.000000; y1 = 3.000000
+Point #2 entered: x2 = 2.000000; y2 = 4.000000
+The distance between the two points is 1.414
+
+The area of the city encompassed by your request is 1.571
+
+X-Coordinate of Point #1: X-Coordinate of Point #2: Y-Coordinate of Point #1: Y-Coordinate of Point #2: 
+Point #1 entered: x1 = 1.000000; y1 = 3.000000
+Point #2 entered: x2 = 2.000000; y2 = 4.000000
+The distance between the two points is 1.414
+
+The width of the city encompassed by your request is 1.414
+
+X-Coordinate of Point #1: X-Coordinate of Point #2: Y-Coordinate of Point #1: Y-Coordinate of Point #2: 
+Point #1 entered: x1 = 1.000000; y1 = 3.000000
+Point #2 entered: x2 = 2.000000; y2 = 4.000000
+The distance between the two points is 1.414
+
+The height of the city encompassed by your request is 1.414
