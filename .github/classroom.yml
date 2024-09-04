@@ -1,0 +1,120 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Preprocessor Directive
+      id: preprocessor-directive
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Preprocessor Directive
+        setup-command: make -s
+        command: bash check_output.sh fracturing.c "define PI 3.14159"
+        timeout: 10
+        max-score: 10
+    - name: Perimeter Function
+      id: perimeter-function
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Perimeter Function
+        setup-command: make -s
+        command: bash check_output.sh fracturing.c "double calculatePerimeter()"
+        timeout: 10
+        max-score: 10
+    - name: Area Function
+      id: area-function
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Area Function
+        setup-command: make -s
+        command: bash check_output.sh fracturing.c "double calculateArea()"
+        timeout: 10
+        max-score: 20
+    - name: Width Function
+      id: width-function
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Width Function
+        setup-command: make -s
+        command: bash check_output.sh fracturing.c "double calculateWidth()"
+        timeout: 10
+        max-score: 20
+    - name: Height Function
+      id: height-function
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Width Function
+        setup-command: make -s
+        command: bash check_output.sh fracturing.c "double calculateHeight()"
+        timeout: 10
+        max-score: 20
+    - name: Distance Output
+      id: distance-output
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Distance Output
+        setup-command: make -s
+        command: bash check_output.sh out.txt "The distance between the two points is 1.414"
+        timeout: 10
+        max-score: 2
+    - name: Perimeter Output
+      id: perimeter-output
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Perimeter Output
+        setup-command: make -s
+        command: bash check_output.sh out.txt "The perimeter of the city encompassed by your request is 4.443"
+        timeout: 10
+        max-score: 2
+    - name: Area Output
+      id: area-output
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Area Output
+        setup-command: make -s
+        command: bash check_output.sh out.txt "The area of the city encompassed by your request is 1.571"
+        timeout: 10
+        max-score: 2
+    - name: Width Output
+      id: width-output
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Width Output
+        setup-command: make -s
+        command: bash check_output.sh out.txt "The width of the city encompassed by your request is 1.414"
+        timeout: 10
+        max-score: 2
+    - name: Height output
+      id: height-output
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Height output
+        setup-command: make -s
+        command: bash check_output.sh out.txt "The height of the city encompassed by your request is 1.414"
+        timeout: 10
+        max-score: 2
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        PREPROCESSOR-DIRECTIVE_RESULTS: "${{steps.preprocessor-directive.outputs.result}}"
+        PERIMETER-FUNCTION_RESULTS: "${{steps.perimeter-function.outputs.result}}"
+        AREA-FUNCTION_RESULTS: "${{steps.area-function.outputs.result}}"
+        WIDTH-FUNCTION_RESULTS: "${{steps.width-function.outputs.result}}"
+        HEIGHT-FUNCTION_RESULTS: "${{steps.height-function.outputs.result}}"
+        DISTANCE-OUTPUT_RESULTS: "${{steps.distance-output.outputs.result}}"
+        PERIMETER-OUTPUT_RESULTS: "${{steps.perimeter-output.outputs.result}}"
+        AREA-OUTPUT_RESULTS: "${{steps.area-output.outputs.result}}"
+        WIDTH-OUTPUT_RESULTS: "${{steps.width-output.outputs.result}}"
+        HEIGHT-OUTPUT_RESULTS: "${{steps.height-output.outputs.result}}"
+      with:
+        runners: preprocessor-directive,perimeter-function,area-function,width-function,height-function,distance-output,perimeter-output,area-output,width-output,height-output
